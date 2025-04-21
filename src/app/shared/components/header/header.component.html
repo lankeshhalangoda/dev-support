@@ -1,0 +1,79 @@
+<header class="w-full bg-white shadow-md border-b border-gray-200 relative z-50">
+    <div class="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img
+          src="logo.png"
+          alt="Dipra Engineers Logo"
+          class="h-10 w-auto object-contain"
+        />
+      </div>
+  
+      <!-- Desktop Navigation -->
+      <nav class="hidden sm:flex items-center space-x-6 text-sm font-bold text-gray-700">
+        <a href="#" class="hover:text-[#2673ba] transition">Safety Check Report</a>
+        <a href="#" class="hover:text-[#2673ba] transition">Service Report</a>
+        <a href="#" class="hover:text-[#2673ba] transition">Next Report 01</a>
+        <a href="#" class="hover:text-[#2673ba] transition">Next Report 01</a>
+      </nav>
+  
+      <!-- Mobile Hamburger -->
+      <button class="sm:hidden focus:outline-none" (click)="toggleMobileMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  
+<!-- Overlayed Mobile Menu -->
+<div
+  *ngIf="mobileMenuOpen"
+  class="fixed inset-0 bg-white/30 backdrop-blur-sm z-50 flex flex-col items-center justify-center px-6 text-center sm:hidden"
+>
+  <!-- Close Button -->
+  <button (click)="closeMobileMenu()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <!-- Menu Links -->
+  <div class="bg-white w-full max-w-sm rounded-xl shadow-lg py-6 space-y-4 text-lg font-medium text-gray-800 uppercase"
+  style="font-weight: 900">
+    <a
+      href="#"
+      (click)="closeMobileMenu()"
+      class="block px-6 py-3 hover:bg-gray-50 border-b border-gray-200 transition"
+    >
+      Safety Check Report
+    </a>
+    <a
+      href="#"
+      (click)="closeMobileMenu()"
+      class="block px-6 py-3 hover:bg-gray-50 border-b border-gray-200 transition"
+    >
+      Service Report
+    </a>
+    <a
+      href="#"
+      (click)="closeMobileMenu()"
+      class="block px-6 py-3 hover:bg-gray-50 border-b border-gray-200 transition"
+    >
+      Next Report 01
+    </a>
+    <a
+      href="#"
+      (click)="closeMobileMenu()"
+      class="block px-6 py-3 hover:bg-gray-50 transition"
+    >
+      Next Report 02
+    </a>
+  </div>
+</div>
+
+  </header>
+  

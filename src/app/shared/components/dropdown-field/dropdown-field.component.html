@@ -1,0 +1,37 @@
+<div class="w-full mb-4">
+  <div class="relative">
+    <select
+      class="block appearance-none w-full py-3 px-4 pr-10 border border-gray-300 rounded-lg bg-white shadow-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#2673ba] transition duration-200 cursor-pointer"
+      [(ngModel)]="inputDropdownFieldValue"
+      (ngModelChange)="onChangeDropdownField()"
+    >
+      <option *ngFor="let response of responses" [value]="response.id">
+        {{ response.text }}
+      </option>
+    </select>
+    
+    <!-- Dropdown Icon -->
+    <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
+      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 14a1 1 0 0 1-.7-.29l-4-4a1 1 0 1 1 1.42-1.42L10 11.59l3.29-3.3a1 1 0 0 1 1.42 1.42l-4 4A1 1 0 0 1 10 14z" clip-rule="evenodd"/>
+      </svg>
+    </div>
+  </div>
+
+  <style>
+    select option {
+      animation: fadeInUp 0.2s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</div>

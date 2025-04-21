@@ -1,0 +1,25 @@
+<nav class="text-sm text-gray-600 mb-4" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2">
+      <li *ngFor="let crumb of breadcrumbs; let i = index" class="flex items-center">
+        <ng-container *ngIf="crumb.url && i !== breadcrumbs.length - 1; else current">
+          <a [routerLink]="crumb.url" class="text-[#2673ba] hover:underline">
+            {{ crumb.label }}
+          </a>
+          <svg
+            class="w-4 h-4 mx-2 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </ng-container>
+  
+        <ng-template #current>
+          <span class="font-medium text-gray-800">{{ crumb.label }}</span>
+        </ng-template>
+      </li>
+    </ol>
+  </nav>
+  

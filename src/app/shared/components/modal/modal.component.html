@@ -1,0 +1,51 @@
+<!-- Trigger Button (for testing, you can remove in actual use) -->
+<div class="mb-4">
+    <button
+      (click)="open()"
+      class="bg-[#2673ba] text-white px-4 py-2 rounded-md shadow hover:bg-[#2673ba] transition"
+    >
+      Open Modal
+    </button>
+  </div>
+  
+  <!-- Modal Overlay -->
+  <div
+    *ngIf="isOpen"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 backdrop-blur-sm transition"
+  >
+    <!-- Modal Box -->
+    <div class="bg-white w-full max-w-lg mx-4 rounded-lg shadow-lg p-6 relative">
+      <!-- Close Button -->
+      <button
+        (click)="close()"
+        class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-lg font-bold"
+      >
+        &times;
+      </button>
+  
+      <!-- Title -->
+      <h2 class="text-lg font-semibold text-gray-800 mb-4">Modal Title</h2>
+  
+      <!-- Content Slot -->
+      <div class="text-sm text-gray-600">
+        <ng-content></ng-content>
+      </div>
+  
+      <!-- Action Buttons -->
+      <div class="mt-6 flex justify-end space-x-2">
+        <button
+          class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300"
+          (click)="close()"
+        >
+          Cancel
+        </button>
+        <button
+          class="bg-[#2673ba] text-white px-4 py-2 rounded-md hover:bg-[#2673ba]"
+          (click)="close()"
+        >
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,76 @@
+<div #dropdownContainer class="w-full mb-4 relative">
+    <label class="block text-sm font-medium text-gray-700 mb-1">{{ label }}</label>
+  
+    <!-- Selected tags -->
+    <div class="flex flex-wrap gap-2 mb-2">
+      <ng-container *ngFor="let id of selectedValues">
+        <span class="flex items-center px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+          {{ getOptionLabel(id) }}
+          <button (click)="removeTag(id)" type="button" class="ml-2 text-blue-600 hover:text-blue-900 focus:outline-none">✕</button>
+        </span>
+      </ng-container>
+  
+      <button
+        *ngIf="selectedValues.length"
+        (click)="clearAll()"
+        type="button"
+        class="text-xs text-red-500 hover:underline ml-auto"
+      >
+        Clear All
+      </button>
+    </div>
+  
+    <!-- Search input -->
+    <div class="relative">
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        (focus)="toggleDropdown()"
+        placeholder="Search..."
+        class="block w-full py-3 px-4 pr-10 border border-gray-300 rounded-lg bg-white shadow-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#2673ba] text-sm"
+      />
+  
+      <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+  
+      <ul
+        *ngIf="dropdownOpen && filteredOptions.length"
+        class="absolute z-10 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto animate-fadeInUp"
+      >
+        <li
+          *ngFor="let option of filteredOptions"
+          (click)="toggleSelection(option.id)"
+          class="flex items-center px-4 py-2 text-sm text-gray-800 cursor-pointer hover:bg-blue-100 transition-colors duration-150"
+        >
+          <input
+            type="checkbox"
+            class="mr-2"
+            [checked]="isSelected(option.id)"
+            (click)="$event.stopPropagation()"
+          />
+          {{ option.text }}
+        </li>
+      </ul>
+    </div>
+  
+    <style>
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  
+      .animate-fadeInUp {
+        animation: fadeInUp 0.2s ease-in-out;
+      }
+    </style>
+  </div>
+  

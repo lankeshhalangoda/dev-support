@@ -1,0 +1,20 @@
+<div class="flex items-center space-x-3">
+    <!-- Label -->
+    <span class="text-sm font-medium text-gray-700">
+      {{ isOn ? 'On' : 'Off' }}
+    </span>
+  
+    <!-- Toggle Switch -->
+    <button
+      (click)="toggle()"
+      type="button"
+      class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 focus:outline-none"
+      [ngClass]="isOn ? 'bg-[#2673ba]' : 'bg-gray-300'"
+    >
+      <span
+        class="inline-block h-4 w-4 transform rounded-full bg-white transition duration-300"
+        [ngClass]="isOn ? 'translate-x-5' : 'translate-x-1'"
+      ></span>
+    </button>
+  </div>
+  

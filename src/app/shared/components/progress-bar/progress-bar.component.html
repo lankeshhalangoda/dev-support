@@ -1,0 +1,11 @@
+<div class="flex justify-between text-sm font-medium text-gray-600 mb-1">
+  <span>Step 1 of 3</span>
+  <span>{{ formProgressValue }}% Complete</span>
+</div>
+
+<div class="w-full bg-gray-200 rounded-md overflow-hidden h-4">
+  <div
+    class="h-full bg-[#2673ba] transition-all duration-300"
+    [style.width]="progressWidth"
+  ></div>
+</div>

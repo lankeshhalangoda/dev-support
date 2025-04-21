@@ -1,0 +1,31 @@
+<div class="relative border-l border-gray-300 pl-6">
+    <div *ngFor="let step of steps" class="relative flex items-start space-x-3 mb-6">
+  
+      <!-- Timeline Dot -->
+      <div
+        class="w-3 h-3 mt-1 rounded-full flex-shrink-0 z-10"
+        [ngClass]="{
+          'bg-[#2673ba]': step.status === 'completed',
+          'border-2 border-[#2673ba] bg-white ring-2 ring-blue-300': step.status === 'current',
+          'border-2 border-gray-300 bg-white': step.status === 'upcoming'
+        }"
+      ></div>
+  
+      <!-- Content -->
+      <div>
+        <div
+          class="text-sm leading-tight"
+          [ngClass]="{
+            'text-gray-900 font-medium': step.status !== 'upcoming',
+            'text-gray-400': step.status === 'upcoming'
+          }"
+        >
+          {{ step.label }}
+        </div>
+        <div *ngIf="step.date" class="text-xs text-gray-500">
+          {{ step.date }}
+        </div>
+      </div>
+    </div>
+  </div>
+  

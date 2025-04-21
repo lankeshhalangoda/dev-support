@@ -1,0 +1,15 @@
+<div class="w-full mb-4">
+  
+    <textarea
+      [(ngModel)]="inputText"
+      [attr.maxLength]="maxLength"
+      rows="4"
+      placeholder="Enter your message..."
+      class="w-full py-3 px-4 border border-gray-300 rounded-md bg-white shadow-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2673ba] transition duration-200 resize-none"
+    ></textarea>
+  
+    <div class="text-right text-xs text-gray-500 mt-1">
+      {{ inputText.length }} / {{ maxLength }}
+    </div>
+  </div>
+  

@@ -1,0 +1,22 @@
+<div class="mb-4">
+    <label class="block font-medium text-gray-700 mb-2">
+      {{ labelText }}
+    </label>
+  
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+      <label
+        *ngFor="let option of options"
+        class="flex items-center justify-center px-3 py-2 rounded-lg border text-sm font-medium shadow-sm cursor-pointer transition"
+        [class.border-blue-500]="selectedValues.includes(option.id)"
+        [class.bg-blue-100]="selectedValues.includes(option.id)"
+        [class.text-blue-700]="selectedValues.includes(option.id)"
+        [class.border-gray-300]="!selectedValues.includes(option.id)"
+        [class.bg-white]="!selectedValues.includes(option.id)"
+        [class.text-gray-700]="!selectedValues.includes(option.id)"
+        (click)="toggleValue(option.id)"
+      >
+        {{ option.text }}
+      </label>
+    </div>
+  </div>
+  

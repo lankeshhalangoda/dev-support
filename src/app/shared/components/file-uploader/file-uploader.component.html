@@ -1,0 +1,31 @@
+<div class="w-full mb-4">
+    <label class="block text-sm font-medium text-gray-700 mb-2">
+      Upload File
+    </label>
+  
+    <div
+      class="w-full p-6 border-2 border-dashed rounded-md text-center transition duration-300 cursor-pointer"
+      [ngClass]="{
+        'border-blue-400 bg-blue-50': dragging,
+        'border-gray-300 bg-white hover:bg-gray-50': !dragging
+      }"
+      (drop)="onDrop($event)"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave()"
+      (click)="fileInput.click()"
+    >
+      <input
+        type="file"
+        hidden
+        (change)="onFileSelected($event)"
+        #fileInput
+      />
+      <div class="text-sm text-gray-500">
+        Drag & drop your file here or <span class="text-[#2673ba] font-medium">click to upload</span>
+      </div>
+      <div *ngIf="selectedFile" class="mt-2 text-sm text-gray-700">
+        Selected: <strong>{{ selectedFile.name }}</strong>
+      </div>
+    </div>
+  </div>
+  

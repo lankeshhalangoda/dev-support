@@ -1,0 +1,23 @@
+<div class="grid grid-cols-2 gap-4">
+  <label
+    *ngFor="let response of responses"
+    class="flex items-center justify-center py-3 px-6 rounded-lg border transition duration-200 cursor-pointer text-sm font-medium shadow-sm text-gray-700"
+    [class.border-[#2673ba]]="response.id === inputRadioFieldValue"
+    [class.bg-blue-100]="response.id === inputRadioFieldValue"
+    [class.text-blue-700]="response.id === inputRadioFieldValue"
+    [class.border-gray-300]="response.id !== inputRadioFieldValue"
+    [class.bg-white]="response.id !== inputRadioFieldValue"
+    [class.hover:bg-gray-100]="response.id !== inputRadioFieldValue"
+    (click)="onChangeRadioButtonField(response.id)"
+  >
+    <input
+      type="radio"
+      [name]="uniqueId"
+      [value]="response.id"
+      [checked]="response.id === inputRadioFieldValue"
+      class="hidden"
+      readonly
+    />
+    <span class="text-center w-full">{{ response.text }}</span>
+  </label>
+</div>
